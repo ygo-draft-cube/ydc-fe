@@ -1,0 +1,22 @@
+<div class="card text-center">
+    <h1 class="card-header mb-0">{{name}}</h1>
+    <div class="" *ngIf="cubes">
+        <mdb-carousel [controls]="true" [indicators]="true" animation="fade">
+            <mdb-carousel-item *ngFor="let cube of cubes">
+                <img [src]="cube.image" class="d-block w-100"/>
+                <div class="mask" style="background-color: rgba(0, 0, 0, 0.5); color: white">
+                    <div class="d-flex justify-content-center align-items-center h-100 flex-column"
+                         style="padding: 64px">
+                        <h2>{{cube.name}}</h2>
+                        <p>{{cube.description | limitTo: 100}}</p>
+                        <div class="btn-group d-flex flex-row" style="margin-top:16px">
+                            <button class="btn btn-primary" [routerLink]="['cubes', cube.id]">Open</button>
+                            <button class="btn btn-secondary">Start Drafting</button>
+                        </div>
+                    </div>
+                </div>
+            </mdb-carousel-item>
+        </mdb-carousel>
+    </div>
+    <div class="card-footer text-muted">{{description}}</div>
+</div>

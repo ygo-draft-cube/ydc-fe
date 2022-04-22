@@ -1,0 +1,50 @@
+<div *ngIf="cube; else errorLoadingCubeInfo" class="card">
+    <!--    <div class="bg-image hover-overlay ripple">-->
+    <!--        <img [src]="cube.image" class="img-fluid"/>-->
+    <!--        <a [routerLink]="['/cubes',cube.id]">-->
+    <!--            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>-->
+    <!--        </a>-->
+    <!--    </div>-->
+
+
+    <div class="card-body">
+        <h3 class="card-title">{{cube.name}}</h3>
+        <div class="card-text">
+            <div>
+                <a type="button" class="btn btn-outline-primary btn-rounded mb-4" *ngFor="let tag of cube.tags"
+                   routerLink="/cubes" [queryParams]="{tag: tag}" [ngClass]="tag|btnOutlineFromTag"
+                   style="padding:4px">
+                    <small>{{tag}}</small>
+                </a>
+            </div>
+            <p>{{cube.description | limitTo : 400}}</p>
+            <p *ngIf="cube.cards">
+                <span
+                    [ngStyle]="{'fontWeight': 'bold'}">Includes:
+                </span> {{cube.cards | cardNamesCsv : ', '| limitTo :100}}
+            </p>
+            <p>
+                <span
+                    [ngStyle]="{'fontWeight': 'bold'}">Number of Cards:
+                </span> {{cube.cards?.length}}
+            </p>
+            <p>
+                <span
+                    [ngStyle]="{'fontWeight': 'bold'}">Ideal Number of Players:
+                </span> {{cube.numberOfPlayers}}
+            </p>
+        </div>
+        <div class="btn-group mt-4">
+            <a [routerLink]="['/cubes',cube.id]" class="btn btn-outline-primary">Open</a>
+            <a [routerLink]="['/cubes',cube.id, 'draft']" class="btn btn-outline-secondary">Start Drafting</a>
+        </div>
+    </div>
+</div>
+
+<ng-template #errorLoadingCubeInfo>
+    <div class="card">
+        <div class="card-body">
+            <p class="card-text">Error loading cube information</p>
+        </div>
+    </div>
+</ng-template>

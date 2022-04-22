@@ -1,0 +1,11 @@
+<main *ngIf="(this.activatedRoute.data | async)?.['data'] as data; else loading">
+    <div class="container">
+        <div *ngFor="let cube of (data | as: CubeSearchResolverData).cubes">
+            {{cube.name}}
+        </div>
+    </div>
+</main>
+
+<ng-template #loading>
+    Loading...
+</ng-template>

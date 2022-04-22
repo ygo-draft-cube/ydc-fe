@@ -1,0 +1,20 @@
+<app-jumbotron></app-jumbotron>
+
+<main *ngIf="(this.activatedRoute.data | async)?.['data'] as data; else loading">
+    <div class="container visually-hidden">
+        <app-room-in-progress-alert></app-room-in-progress-alert>
+    </div>
+
+    <app-cube
+        [battlePackCubes]="(data | as: HomePageResolverData).battlePackCubes"
+        [duelNightCubes]="(data | as: HomePageResolverData).duelNightCubes"
+        [popularCubes]="(data | as: HomePageResolverData).popularCubes"
+        [frontPageCubes]="(data | as: HomePageResolverData).frontPageCubes"
+    ></app-cube>
+
+    <app-footer></app-footer>
+</main>
+
+<ng-template #loading>
+    Loading...
+</ng-template>
