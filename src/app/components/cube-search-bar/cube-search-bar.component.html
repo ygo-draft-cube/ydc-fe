@@ -1,0 +1,14 @@
+<div id="cubes">
+    <form class="d-flex input-group w-auto" [formGroup]="searchForm" (ngSubmit)="search()" novalidate>
+        <input [placeholder]="this.placeholderText"
+               aria-label="Search"
+               class="form-control"
+               type="search"
+               formControlName="searchQuery"
+        />
+        <a class="btn btn-outline-primary" type="submit"
+           routerLink="/cubes" [queryParams]="{search: this.searchForm.value.searchQuery}">
+            Search
+        </a>
+    </form>
+</div>
