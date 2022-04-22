@@ -1,0 +1,28 @@
+<div class="row">
+    <app-cube-overview-card
+        *ngFor="let cube of cubes" [cube]="cube"
+        class="col-12 col-md-6 col-xl-4 mb-4"></app-cube-overview-card>
+</div>
+
+
+<div class="d-grid gap-2">
+    <a class="btn btn-primary" type="button" routerLink="/cubes">See more cubes</a>
+</div>
+
+<!--<nav aria-label="..." class="mt-4">-->
+<!--    <ul class="pagination justify-content-center">-->
+<!--        <li class="page-item disabled">-->
+<!--            <span class="page-link">Previous</span>-->
+<!--        </li>-->
+<!--        <li aria-current="page" class="page-item active">-->
+<!--            <span class="page-link">1<span class="visually-hidden">(current)</span></span>-->
+<!--        </li>-->
+<!--        <li class="page-item">-->
+<!--            <a class="page-link" routerLink="cubes" fragment="page=2">2</a>-->
+<!--        </li>-->
+<!--        <li class="page-item"><a class="page-link" routerLink="cubes" fragment="page=3">3</a></li>-->
+<!--        <li class="page-item">-->
+<!--            <a class="page-link" routerLink="cubes" fragment="page=2">Next</a>-->
+<!--        </li>-->
+<!--    </ul>-->
+<!--</nav>-->

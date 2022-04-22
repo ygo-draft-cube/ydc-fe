@@ -1,0 +1,18 @@
+<div style="background-color: rgba(0, 0, 0, 0.8);">
+    <div class="container">
+        <div class="row">
+            <app-cube-feature-type
+                [cubes]="this.battlePackCubes" class="col-12 col-xl-4 mb-4"
+                description="Draft with an extra element of randomness. Battle Packs are sets designed for Sealed Play. Draft room Uses the YGO Pro pack opener internally so the pool count changes every draft."
+                name="Sealed Battle Packs"></app-cube-feature-type>
+            <app-cube-feature-type
+                [cubes]="this.duelNightCubes" class="col-12 col-xl-4 mb-4"
+                description="Draft using the same cubes used by TeamSamuraiX1 in the Duel Night show. Designed to be drafted by 4 players."
+                name="Duel Night Draft"></app-cube-feature-type>
+            <app-cube-feature-type
+                [cubes]="this.popularCubes" class="col-12 col-xl-4 mb-4"
+                description="These are cubes being drafted by a large number of players."
+                name="Popular Cubes"></app-cube-feature-type>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+<form class="ng-untouched ng-pristine ng-valid ng-star-inserted"
+      data-bitwarden-watching="1"
+      novalidate="">
+    <div class="text-center mb-3">
+        <p>Sign in with:</p>
+        <button class="btn btn-primary btn-floating mx-1"
+                type="button"><i
+            class="fab fa-facebook-f"></i>
+        </button>
+        <button class="btn btn-primary btn-floating mx-1"
+                type="button"><i
+            class="fab fa-google"></i>
+        </button>
+        <button class="btn btn-primary btn-floating mx-1"
+                type="button"><i
+            class="fab fa-twitter"></i>
+        </button>
+        <button class="btn btn-primary btn-floating mx-1"
+                type="button"><i
+            class="fab fa-github"></i>
+        </button>
+    </div>
+    <p class="text-center">or:</p>
+    <mdb-form-control class="mb-4 form-outline">
+        <input class="form-control" id="username" mdbInput type="username"/>
+        <label class="form-label" for="username" mdbLabel>Username</label>
+    </mdb-form-control>
+    <mdb-form-control class="mb-4 form-outline">
+        <input class="form-control" id="password" mdbInput type="password"/>
+        <label class="form-label" for="password" mdbLabel>Password</label>
+    </mdb-form-control>
+    <div class="row mb-4">
+        <div class="col-md-6 d-flex justify-content-center">
+            <div class="form-check mb-3 mb-md-0"><input
+                checked="" class="form-check-input" id="loginCheck"
+                type="checkbox" value=""><label
+                class="form-check-label" for="loginCheck"> Remember
+                me </label></div>
+        </div>
+        <div class="col-md-6 d-flex justify-content-center"><a (click)="this.forgotPassword()" disabled>Forgot
+            password?</a>
+        </div>
+    </div>
+    <button class="btn btn-primary btn-block mb-4" disabled type="submit">
+        Sign in
+    </button>
+    <div class="text-center">
+        <p>Not a member? <a>Register</a></p>
+    </div>
+</form>
