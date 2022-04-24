@@ -17,6 +17,7 @@ import {MdbTabsModule} from 'mdb-angular-ui-kit/tabs';
 import {MdbTooltipModule} from 'mdb-angular-ui-kit/tooltip';
 import {MdbValidationModule} from 'mdb-angular-ui-kit/validation';
 import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatPaginatorModule} from "@angular/material/paginator";
 
 @NgModule({
     declarations: [],
@@ -38,6 +39,7 @@ import {MatSidenavModule} from "@angular/material/sidenav";
         MdbTooltipModule,
         MdbValidationModule,
         MatSidenavModule,
+        MatPaginatorModule,
     ],
     exports: [
         MdbAccordionModule,
@@ -56,6 +58,7 @@ import {MatSidenavModule} from "@angular/material/sidenav";
         MdbTooltipModule,
         MdbValidationModule,
         MatSidenavModule,
+        MatPaginatorModule
     ]
 })
 export class MaterialModule {

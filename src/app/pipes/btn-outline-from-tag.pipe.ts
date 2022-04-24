@@ -29,7 +29,7 @@ export class BtnOutlineFromTagPipe implements PipeTransform {
             case 'Duel Night':
                 return outlines[5];
             case 'Battle Pack':
-                return outlines[1];
+                return outlines[4];
             default:
                 const hash = this.simpleHash(value)
                 const mod = hash % outlines.length

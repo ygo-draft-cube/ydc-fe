@@ -11,8 +11,8 @@
         <h3 class="card-title">{{cube.name}}</h3>
         <div class="card-text">
             <div>
-                <a type="button" class="btn btn-outline-primary btn-rounded mb-4" *ngFor="let tag of cube.tags"
-                   routerLink="/cubes" [queryParams]="{tag: tag}" [ngClass]="tag|btnOutlineFromTag"
+                <a type="button" class="btn btn-outline-primary btn-rounded mb-4 me-2" *ngFor="let tag of cube.tags"
+                   routerLink="/cubes" [queryParams]="{tags: [tag]}" [ngClass]="tag|btnOutlineFromTag"
                    style="padding:4px">
                     <small>{{tag}}</small>
                 </a>

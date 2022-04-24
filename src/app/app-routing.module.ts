@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
+import {ExtraOptions, RouterModule, Routes} from '@angular/router';
 import {HomePage} from './pages/home/home.page';
 import {RoomPage} from "./pages/room/room.page";
 import {LoginRegisterPage} from './pages/login-register/login-register.page';
@@ -24,7 +24,8 @@ const routes: Routes = [
         component: CubeSearchPage,
         resolve: {
             data: CubeSearchResolver
-        }
+        },
+        runGuardsAndResolvers: 'paramsOrQueryParamsChange'
     }, {
         path: 'cubes/:id',
         component: CubeInformationPage,
@@ -50,14 +51,16 @@ const routes: Routes = [
     }
 ];
 
-// const routerConfigOptions: ExtraOptions = {
-//     scrollPositionRestoration: 'enabled',
-//     // anchorScrolling: 'enabled',
-//     scrollOffset: [0, 64] // [x, y]
-// }
+const routerConfigOptions: ExtraOptions = {
+    // Restore the last scroll position
+    scrollPositionRestoration: "enabled",
+    scrollOffset: [0, 0],
+    // Enable scrolling to anchors
+    anchorScrolling: "enabled",
+}
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
+    imports: [RouterModule.forRoot(routes, routerConfigOptions)],
     exports: [RouterModule]
 })
 export class AppRoutingModule {
