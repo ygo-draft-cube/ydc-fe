@@ -4,7 +4,8 @@
 
 export const environment = {
     production: false,
-    apiUri: 'http://localhost:3000/'
+    apiUri: 'http://localhost:3000/',
+    cardImageUri: 'https://ydc-fe-card-image-store.s3.amazonaws.com/'
 };
 
 /*

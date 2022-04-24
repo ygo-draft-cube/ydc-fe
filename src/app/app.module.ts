@@ -38,6 +38,10 @@ import {AboutUsPage} from './pages/about-us/about-us.page';
 import {HowToPage} from './pages/how-to/how-to.page';
 import {NotFoundPage} from './pages/not-found/not-found.page';
 import {HttpClientModule} from "@angular/common/http";
+import {ExpandImageModalComponent} from './components/expand-image-modal/expand-image-modal.component';
+import {CardImageUrlPipe} from './pipes/card-image-url.pipe';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -68,7 +72,9 @@ import {HttpClientModule} from "@angular/common/http";
         BtnOutlineFromTagPipe,
         AboutUsPage,
         HowToPage,
-        NotFoundPage
+        NotFoundPage,
+        ExpandImageModalComponent,
+        CardImageUrlPipe
     ],
     imports: [
         BrowserModule,
@@ -77,7 +83,13 @@ import {HttpClientModule} from "@angular/common/http";
         CoreModule,
         FlexLayoutModule,
         ReactiveFormsModule,
-        HttpClientModule
+        HttpClientModule,
+        ServiceWorkerModule.register('ngsw-worker.js', {
+          enabled: environment.production,
+          // Register the ServiceWorker as soon as the application is stable
+          // or after 30 seconds (whichever comes first).
+          registrationStrategy: 'registerWhenStable:30000'
+        })
     ],
     providers: [],
     bootstrap: [AppComponent]
