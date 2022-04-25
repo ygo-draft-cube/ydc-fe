@@ -2,7 +2,7 @@ import {Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy} from '@an
 import {ActivatedRoute} from "@angular/router";
 import {CubeInformationResolverData} from "../../resolvers/cube-information.resolver-data-interface";
 import {MdbModalRef, MdbModalService} from "mdb-angular-ui-kit/modal";
-import {ExpandImageModalComponent} from 'src/app/components/expand-image-modal/expand-image-modal.component';
+import {ExpandImageModalComponent} from '../../components/expand-image-modal/expand-image-modal.component';
 import {Card} from "../../models/card.model";
 
 @Component({

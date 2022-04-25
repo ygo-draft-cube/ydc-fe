@@ -1,8 +1,7 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
-
-import {CubeInformationPage} from './cube-information.page';
 import {RouterTestingModule} from "@angular/router/testing";
-import {MaterialModule} from 'src/app/core/material.module';
+import {CubeInformationPage} from './cube-information.page';
+import {MaterialModule} from '../../core/material.module';
 
 describe('CubeInformationPage', () => {
     let component: CubeInformationPage;
