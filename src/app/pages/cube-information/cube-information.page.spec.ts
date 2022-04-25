@@ -1,13 +1,16 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {CubeInformationPage} from './cube-information.page';
+import {RouterTestingModule} from "@angular/router/testing";
+import {MaterialModule} from 'src/app/core/material.module';
 
-describe('CubeInformationComponent', () => {
+describe('CubeInformationPage', () => {
     let component: CubeInformationPage;
     let fixture: ComponentFixture<CubeInformationPage>;
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
+            imports: [RouterTestingModule, MaterialModule],
             declarations: [CubeInformationPage]
         })
             .compileComponents();

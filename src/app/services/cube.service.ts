@@ -3,7 +3,6 @@ import {Cube} from "../models/cube.model";
 import {Observable} from "rxjs";
 import {environment} from "../../environments/environment";
 import {HttpClient} from "@angular/common/http";
-import cards from "../../assets/cards.json"
 
 @Injectable({
     providedIn: 'root'
