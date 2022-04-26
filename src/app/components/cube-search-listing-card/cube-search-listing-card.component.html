@@ -6,16 +6,14 @@
     <!--        </a>-->
     <!--    </div>-->
 
-
+    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+        <img [src]="cube.image" class="img-fluid" style="width: 100%"/>
+    </div>
     <div class="card-body">
-        <h3 class="card-title">{{cube.name}}</h3>
+        <h1 class="card-title">{{cube.name}}</h1>
         <div class="card-text">
-            <div>
-                <a type="button" class="btn btn-outline-primary btn-rounded mb-4 me-2" *ngFor="let tag of cube.tags"
-                   routerLink="/cubes" [queryParams]="{tags: [tag]}" [ngClass]="tag|btnOutlineFromTag"
-                   style="padding:4px">
-                    <small>{{tag}}</small>
-                </a>
+            <div class="mb-4">
+                <app-cube-tags-list [tags]="cube.tags"></app-cube-tags-list>
             </div>
             <p>{{cube.description | limitTo : 400}}</p>
             <p *ngIf="cube.cards">
@@ -34,10 +32,11 @@
                 </span> {{cube.numberOfPlayers}}
             </p>
         </div>
-        <div class="btn-group mt-4">
-            <a [routerLink]="['/cubes',cube.id]" class="btn btn-outline-primary">Open</a>
-            <a [routerLink]="['/cubes',cube.id, 'draft']" class="btn btn-outline-secondary">Start Drafting</a>
-        </div>
+
+    </div>
+    <div class="btn-group mt-4 d-flex">
+        <a [routerLink]="['/cubes',cube.id]" class="btn btn-primary">Open</a>
+        <a [routerLink]="['/cubes',cube.id, 'draft']" class="btn btn-secondary">Start Drafting</a>
     </div>
 </div>
 
@@ -48,3 +47,4 @@
         </div>
     </div>
 </ng-template>
+

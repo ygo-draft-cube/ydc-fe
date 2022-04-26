@@ -1,0 +1,7 @@
+<mat-chip-list>
+    <a *ngFor="let tag of tags" routerLink="/cubes" [queryParams]="{tags: [tag]}">
+        <mat-chip style="cursor:pointer" [selected]="tag | tagInActives : actives">
+            {{tag}}
+        </mat-chip>
+    </a>
+</mat-chip-list>

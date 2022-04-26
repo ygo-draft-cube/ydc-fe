@@ -18,6 +18,8 @@ import {MdbTooltipModule} from 'mdb-angular-ui-kit/tooltip';
 import {MdbValidationModule} from 'mdb-angular-ui-kit/validation';
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatChipsModule} from "@angular/material/chips";
+import {MatExpansionModule} from "@angular/material/expansion";
 
 @NgModule({
     declarations: [],
@@ -40,6 +42,8 @@ import {MatPaginatorModule} from "@angular/material/paginator";
         MdbValidationModule,
         MatSidenavModule,
         MatPaginatorModule,
+        MatChipsModule,
+        MatExpansionModule
     ],
     exports: [
         MdbAccordionModule,
@@ -58,7 +62,9 @@ import {MatPaginatorModule} from "@angular/material/paginator";
         MdbTooltipModule,
         MdbValidationModule,
         MatSidenavModule,
-        MatPaginatorModule
+        MatPaginatorModule,
+        MatChipsModule,
+        MatExpansionModule
     ]
 })
 export class MaterialModule {

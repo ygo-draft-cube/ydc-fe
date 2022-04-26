@@ -1,15 +1,23 @@
 <main *ngIf="(this.activatedRoute.data | async)?.['data'] as data; else loading">
-    <div class="container">
-        <h1>Discover Cubes</h1>
-        <app-cube-search class="mb-4"></app-cube-search>
-        <div class="row">
-            <app-cube-overview-card
-                *ngFor="let cube of (data | as: CubeSearchResolverData).cubes" [cube]="cube"
-                class="col-12 col-md-6 col-xl-4 mb-4"></app-cube-overview-card>
+    <div *ngIf="(this.activatedRoute.queryParams | async) as queryParams; else loading">
+        <div class="container">
+            <h1>Discover Cubes</h1>
+            <app-cube-search class="mb-4"></app-cube-search>
+            <div class="mb-4">
+                <h2>Filter by tags</h2>
+                <app-cube-tags-list [tags]="['Battle Pack', 'Duel Night', 'Sealed Draft']"
+                                    [actives]="queryParams['tags']"></app-cube-tags-list>
+            </div>
+            <div class="row">
+                <app-cube-overview-card
+                    *ngFor="let cube of (data | as: CubeSearchResolverData).cubes" [cube]="cube"
+                    class="col-12 col-md-6 col-xl-4 mb-4"></app-cube-overview-card>
+            </div>
+            <mat-paginator length="21" pageSize="9" [hidePageSize]="true" (page)="changePage($event)"
+                           [pageIndex]="(queryParams['_page']  || 1) - 1"
+                           aria-label="Select page">
+            </mat-paginator>
         </div>
-        <mat-paginator length="21" pageSize="9" [hidePageSize]="true" (page)="changePage($event)"
-                       aria-label="Select page">
-        </mat-paginator>
     </div>
 </main>
 

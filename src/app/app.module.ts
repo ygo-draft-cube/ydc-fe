@@ -40,8 +40,10 @@ import {NotFoundPage} from './pages/not-found/not-found.page';
 import {HttpClientModule} from "@angular/common/http";
 import {ExpandImageModalComponent} from './components/expand-image-modal/expand-image-modal.component';
 import {CardImageUrlPipe} from './pipes/card-image-url.pipe';
-import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment';
+import {ServiceWorkerModule} from '@angular/service-worker';
+import {environment} from '../environments/environment';
+import {CubeTagsListComponent} from './components/cube-tag-button/cube-tags-list.component';
+import {TagInActivesPipe} from './pipes/tag-in-actives.pipe';
 
 
 @NgModule({
@@ -74,7 +76,9 @@ import { environment } from '../environments/environment';
         HowToPage,
         NotFoundPage,
         ExpandImageModalComponent,
-        CardImageUrlPipe
+        CardImageUrlPipe,
+        CubeTagsListComponent,
+        TagInActivesPipe
     ],
     imports: [
         BrowserModule,
@@ -85,10 +89,10 @@ import { environment } from '../environments/environment';
         ReactiveFormsModule,
         HttpClientModule,
         ServiceWorkerModule.register('ngsw-worker.js', {
-          enabled: environment.production,
-          // Register the ServiceWorker as soon as the application is stable
-          // or after 30 seconds (whichever comes first).
-          registrationStrategy: 'registerWhenStable:30000'
+            enabled: environment.production,
+            // Register the ServiceWorker as soon as the application is stable
+            // or after 30 seconds (whichever comes first).
+            registrationStrategy: 'registerWhenStable:30000'
         })
     ],
     providers: [],

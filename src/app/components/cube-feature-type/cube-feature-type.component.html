@@ -10,8 +10,10 @@
                         <h2>{{cube.name}}</h2>
                         <p>{{cube.description | limitTo: 100}}</p>
                         <div class="btn-group d-flex flex-row" style="margin-top:16px">
-                            <button class="btn btn-primary" [routerLink]="['cubes', cube.id]">Open</button>
-                            <button class="btn btn-secondary">Start Drafting</button>
+                            <a class="btn btn-primary" [routerLink]="['/cubes', cube.id]">Open</a>
+                            <a class="btn btn-secondary" [routerLink]="['/cubes', cube.id, 'draft']">Start
+                                Drafting
+                            </a>
                         </div>
                     </div>
                 </div>

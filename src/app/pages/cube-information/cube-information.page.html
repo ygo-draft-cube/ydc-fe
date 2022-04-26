@@ -1,41 +1,63 @@
 <main class="container" *ngIf="(this.activatedRoute.data | async)?.['data'] as data; else loading">
     <div *ngIf="(data | as: CubeInformationResolverData).cube as cube; else noCubeFound">
-        <div class="row g-0 card flex-row mb-4">
-            <div class="col-md-2">
-                <img
-                    [src]="cube.image"
-                    class="img-fluid"
-                />
+        <div class="card text-center">
+            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                <img [src]="cube.image" class="img-fluid" style="height: 500px; width: 100%; object-fit: cover;"/>
             </div>
-            <div class="col-md-10">
-                <div class="card-body">
-                    <h1 class="card-title">{{cube.name}}</h1>
-                    <p class="card-text">
-                        {{cube.description}}
-                    </p>
-                    <!--                <p class="card-text">-->
-                    <!--                    <small class="text-muted">Last updated 3 mins ago</small>-->
-                    <!--                </p>-->
-                </div>
+            <h1 class="card-header">{{cube.name}}</h1>
+            <div class="card-title mb-4">
+                <a [routerLink]="['/public-profile', 'author-name']">Author Name</a> |
+                <span>January 1, 2022</span>
             </div>
+            <h5 class="card-text mb-4">
+                <app-cube-tags-list [tags]="cube.tags" class="justify-content-center d-flex"></app-cube-tags-list>
+            </h5>
+
+            <p class="card-text">
+                {{cube.description}}
+            </p>
+            <div class="card-footer  row g-0">
+                <span class="col-12 col-md-6 col-lg-3"><span style="font-weight: bold">Number of Rounds</span>: 1</span>
+                <span class="col-12 col-md-6 col-lg-3"><span style="font-weight: bold">Packs per Round</span>: 5</span>
+                <span class="col-12 col-md-6 col-lg-3"><span style="font-weight: bold">Cards per Pack</span>: 15</span>
+                <span class="col-12 col-md-6 col-lg-3">
+                    <span
+                        style="font-weight: bold">Maximum Number of Players</span>: {{(cube.cards.length * 3) / (15 * 5 * 1) | number: '1.0-0'}}
+                </span>
+            </div>
+            <div class="card-footer row g-0">
+                <span><span style="font-weight: bold">Rarity by pack</span>: 15 commons</span>
+            </div>
+            <a class="btn btn-secondary" [routerLink]="['/cubes', cube.id, 'draft']">Start Drafting</a>
+        </div>
+        <div class=" g-0 card flex-row mb-4">
+
         </div>
         <div>
             <h2>Contents ({{cube.cards.length}} cards):</h2>
-            <div class="row flex-row">
-                <div *ngFor="let card of cube.cards" class="col-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2 mb-4">
-                    <div class="card" *ngIf="card">
-                        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                            <img [src]="card.id | cardImageUrl" class="img-fluid"/>
-                            <span (click)="openModal(card)" style="cursor: pointer">
+            <mat-accordion class="example-headers-align" multi>
+                <mat-expansion-panel expanded="true">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Common
+                        </mat-panel-title>
+
+                    </mat-expansion-panel-header>
+
+                    <div class="row flex-row">
+                        <div *ngFor="let card of cube.cards" class="col-6 col-md-4 col-lg-3 col-xl-2 col-xxl-2 mb-4">
+                            <div *ngIf="card">
+                                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                                    <img [src]="card.id | cardImageUrl" class="img-fluid" style="width: 100%"/>
+                                    <span (click)="openModal(card)" style="cursor: pointer">
                                 <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
                             </span>
-                        </div>
-                        <div class="card-body">
-                            <h3 class="card-title">{{card.name}}</h3>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
+                </mat-expansion-panel>
+            </mat-accordion>
         </div>
     </div>
 </main>

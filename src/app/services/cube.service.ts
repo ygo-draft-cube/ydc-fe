@@ -16,12 +16,15 @@ export class CubeService {
         Object.keys(searchParams).forEach((k: string | number) => searchParams[k] === undefined && delete searchParams[k])
 
         // todo: temp for json-server; api automatically handle searching for a tag in cube.tags
+        console.log(searchParams)
         Object.keys(searchParams).forEach((k: string | number) => {
             const likeable = ['tags']
-            if (k in likeable) {
+            console.log(k)
+            if (likeable.includes(k.toString())) {
                 searchParams[`${k}_like`] = searchParams[k];
                 delete searchParams[k]
             }
+            console.log(searchParams)
         })
 
         // todo: temp for json-server; api should automatically handle searching in name/description/card names for `search`
