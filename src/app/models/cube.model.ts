@@ -1,12 +1,21 @@
+import {Author} from "./author.model";
 import {Card} from "./card.model";
+import {RarityBreakdown} from "./rarity-breakdown.model";
 
 export interface Cube {
-    id: string
-    name: string
+    id: number
     tags: string[]
-    image: string
+    name: string
     description: string
-    numberOfPlayers: string;
-    cardIds: string[]
-    cards: (Card | undefined)[]
+    cards: Card[]
+    coverImage: string
+    numberOfRounds: number
+    packPerRound: number
+    cardPerPack: number
+    idealNumberOfPlayers: number
+    maxNumberOfPlayers: number
+    createdOn: Date
+    lastUpdatedOn: Date
+    author: Author,
+    rarityBreakdown: RarityBreakdown
 }

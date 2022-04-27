@@ -3,7 +3,7 @@
     <div class="" *ngIf="cubes">
         <mdb-carousel [controls]="true" [indicators]="true" animation="fade">
             <mdb-carousel-item *ngFor="let cube of cubes">
-                <img [src]="cube.image" class="d-block w-100"/>
+                <img [src]="cube.coverImage | coverImageUrl" class="d-block w-100"/>
                 <div class="mask" style="background-color: rgba(0, 0, 0, 0.5); color: white">
                     <div class="d-flex justify-content-center align-items-center h-100 flex-column"
                          style="padding: 64px">

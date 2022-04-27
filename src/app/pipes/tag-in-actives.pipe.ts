@@ -6,7 +6,6 @@ import {Pipe, PipeTransform} from '@angular/core';
 })
 export class TagInActivesPipe implements PipeTransform {
     transform(tag: string | undefined, actives: string[] | undefined): boolean | undefined {
-        console.log(tag, actives)
         if (!actives) return;
         if (!tag) return;
 

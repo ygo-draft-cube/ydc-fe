@@ -44,6 +44,12 @@ import {ServiceWorkerModule} from '@angular/service-worker';
 import {environment} from '../environments/environment';
 import {CubeTagsListComponent} from './components/cube-tag-button/cube-tags-list.component';
 import {TagInActivesPipe} from './pipes/tag-in-actives.pipe';
+import {CoverImageUrlPipe} from './pipes/cover-image-url.pipe';
+import {ProfilePicUrlPipe} from "./pipes/profile-pic-url.pipe";
+import {FilterRarityPipe} from './pipes/filter-rarity.pipe';
+import {
+    RarityExpansionPanelComponent
+} from './pages/cube-information/rarity-expansion-panel/rarity-expansion-panel.component';
 
 
 @NgModule({
@@ -77,8 +83,12 @@ import {TagInActivesPipe} from './pipes/tag-in-actives.pipe';
         NotFoundPage,
         ExpandImageModalComponent,
         CardImageUrlPipe,
+        CoverImageUrlPipe,
+        ProfilePicUrlPipe,
         CubeTagsListComponent,
-        TagInActivesPipe
+        TagInActivesPipe,
+        FilterRarityPipe,
+        RarityExpansionPanelComponent
     ],
     imports: [
         BrowserModule,

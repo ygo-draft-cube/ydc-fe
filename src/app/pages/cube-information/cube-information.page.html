@@ -2,12 +2,13 @@
     <div *ngIf="(data | as: CubeInformationResolverData).cube as cube; else noCubeFound">
         <div class="card text-center">
             <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                <img [src]="cube.image" class="img-fluid" style="height: 500px; width: 100%; object-fit: cover;"/>
+                <img [src]="cube.coverImage | coverImageUrl" class="img-fluid"
+                     style="height: 500px; width: 100%; object-fit: cover;"/>
             </div>
             <h1 class="card-header">{{cube.name}}</h1>
             <div class="card-title mb-4">
-                <a [routerLink]="['/public-profile', 'author-name']">Author Name</a> |
-                <span>January 1, 2022</span>
+                <a [routerLink]="['/public-profile', cube.author.id]">{{cube.author.name}}</a> |
+                <span>{{cube.createdOn | date}}</span>
             </div>
             <h5 class="card-text mb-4">
                 <app-cube-tags-list [tags]="cube.tags" class="justify-content-center d-flex"></app-cube-tags-list>
@@ -17,16 +18,34 @@
                 {{cube.description}}
             </p>
             <div class="card-footer  row g-0">
-                <span class="col-12 col-md-6 col-lg-3"><span style="font-weight: bold">Number of Rounds</span>: 1</span>
-                <span class="col-12 col-md-6 col-lg-3"><span style="font-weight: bold">Packs per Round</span>: 5</span>
-                <span class="col-12 col-md-6 col-lg-3"><span style="font-weight: bold">Cards per Pack</span>: 15</span>
+                <span class="col-12 col-md-6 col-lg-3"><span
+                    style="font-weight: bold">Number of Rounds</span>: {{cube.numberOfRounds}}</span>
+                <span class="col-12 col-md-6 col-lg-3"><span
+                    style="font-weight: bold">Packs per Round</span>: {{cube.packPerRound}}</span>
+                <span class="col-12 col-md-6 col-lg-3"><span
+                    style="font-weight: bold">Cards per Pack</span>: {{cube.cardPerPack}}</span>
                 <span class="col-12 col-md-6 col-lg-3">
                     <span
-                        style="font-weight: bold">Maximum Number of Players</span>: {{(cube.cards.length * 3) / (15 * 5 * 1) | number: '1.0-0'}}
+                        style="font-weight: bold">Ideal/Maximum Number of Players</span>: {{cube.idealNumberOfPlayers | number: '1.0-0'}}
+                    /{{cube.maxNumberOfPlayers | number: '1.0-0'}}
                 </span>
             </div>
             <div class="card-footer row g-0">
-                <span><span style="font-weight: bold">Rarity by pack</span>: 15 commons</span>
+                <span class="row">
+                    <span class="col-12"><h5>Rarity per pack</h5></span>
+                    <span class="col-12 col-md-6 "><b>Commons: </b>{{cube.rarityBreakdown.common}}/pack</span>
+                    <span class="col-12 col-md-6 "><b>Rares: </b>{{cube.rarityBreakdown.rare}}/pack</span>
+                </span>
+            </div>
+            <div class="card-footer row g-0">
+                <span class="row">
+                    <span class="col-12"><h5>Rarity per round/draft <span class="text-muted">(replaces a common)</span></h5></span>
+                    <span class="col-12 col-md-4"><b>Super Rares: </b>{{cube.rarityBreakdown.superRare}}/round</span>
+                    <span class="col-12 col-md-4"><b>Ultra Rares: </b>{{cube.rarityBreakdown.ultraRare}}/round</span>
+                    <span class="col-12 col-md-4">
+                        <b>Ultimate Rares: </b>{{cube.rarityBreakdown.ultimateRare}}/draft
+                    </span>
+                </span>
             </div>
             <a class="btn btn-secondary" [routerLink]="['/cubes', cube.id, 'draft']">Start Drafting</a>
         </div>
@@ -36,27 +55,17 @@
         <div>
             <h2>Contents ({{cube.cards.length}} cards):</h2>
             <mat-accordion class="example-headers-align" multi>
-                <mat-expansion-panel expanded="true">
-                    <mat-expansion-panel-header>
-                        <mat-panel-title>
-                            Common
-                        </mat-panel-title>
+                <app-rarity-expansion-panel [cube]="cube" rarityKey="ULTIMATE_RARE" rarityLabel="Ultimate Rare">
+                </app-rarity-expansion-panel>
+                <app-rarity-expansion-panel [cube]="cube" rarityKey="ULTRA_RARE" rarityLabel="Ultra Rare">
+                </app-rarity-expansion-panel>
+                <app-rarity-expansion-panel [cube]="cube" rarityKey="SUPER_RARE" rarityLabel="Super Rare">
+                </app-rarity-expansion-panel>
+                <app-rarity-expansion-panel [cube]="cube" rarityKey="RARE" rarityLabel="Rare">
+                </app-rarity-expansion-panel>
+                <app-rarity-expansion-panel [cube]="cube" rarityKey="COMMON" rarityLabel="Common">
+                </app-rarity-expansion-panel>
 
-                    </mat-expansion-panel-header>
-
-                    <div class="row flex-row">
-                        <div *ngFor="let card of cube.cards" class="col-6 col-md-4 col-lg-3 col-xl-2 col-xxl-2 mb-4">
-                            <div *ngIf="card">
-                                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                                    <img [src]="card.id | cardImageUrl" class="img-fluid" style="width: 100%"/>
-                                    <span (click)="openModal(card)" style="cursor: pointer">
-                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                            </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </mat-expansion-panel>
             </mat-accordion>
         </div>
     </div>

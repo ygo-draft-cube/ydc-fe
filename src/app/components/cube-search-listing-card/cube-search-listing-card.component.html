@@ -7,7 +7,7 @@
     <!--    </div>-->
 
     <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-        <img [src]="cube.image" class="img-fluid" style="width: 100%"/>
+        <img [src]="cube.coverImage | coverImageUrl" class="img-fluid" style="width: 100%"/>
     </div>
     <div class="card-body">
         <h1 class="card-title">{{cube.name}}</h1>
@@ -29,7 +29,7 @@
             <p>
                 <span
                     [ngStyle]="{'fontWeight': 'bold'}">Ideal Number of Players:
-                </span> {{cube.numberOfPlayers}}
+                </span> {{cube.idealNumberOfPlayers}}
             </p>
         </div>
 
