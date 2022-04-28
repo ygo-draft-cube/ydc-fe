@@ -11,6 +11,7 @@ import {HowToPage} from "./pages/how-to/how-to.page";
 import {AboutUsPage} from "./pages/about-us/about-us.page";
 import {NotFoundPage} from "./pages/not-found/not-found.page";
 import {CubeSearchResolver} from "./resolvers/cube-search.resolver";
+import {StartDraftLoadPagePage} from "./pages/start-draft-load-page/start-draft-load-page.page";
 
 const routes: Routes = [
     {
@@ -33,7 +34,10 @@ const routes: Routes = [
             data: CubeInformationResolver
         }
     }, {
-        path: 'draft-room',
+        path: 'cubes/:id/draft',
+        component: StartDraftLoadPagePage
+    }, {
+        path: 'draft-room/:roomId',
         component: RoomPage,
         resolve: {}
     }, {

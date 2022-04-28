@@ -1,8 +1,8 @@
-import { CardNamesCsvPipe } from './card-names-csv.pipe';
+import {ToCsvPipe} from './card-names-csv.pipe';
 
 describe('CardNamesCsvPipe', () => {
-  it('create an instance', () => {
-    const pipe = new CardNamesCsvPipe();
-    expect(pipe).toBeTruthy();
-  });
+    it('create an instance', () => {
+        const pipe = new ToCsvPipe();
+        expect(pipe).toBeTruthy();
+    });
 });

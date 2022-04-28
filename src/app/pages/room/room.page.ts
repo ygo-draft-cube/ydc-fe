@@ -1,4 +1,5 @@
 import {Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy} from '@angular/core';
+import {DraftRoomService} from "../../services/draft-room.service";
 
 @Component({
     templateUrl: './room.page.html',
@@ -7,11 +8,9 @@ import {Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy} from '@an
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RoomPage implements OnInit {
-
-    constructor() {
+    constructor(public draftRoomService: DraftRoomService) {
     }
 
     ngOnInit(): void {
     }
-
 }

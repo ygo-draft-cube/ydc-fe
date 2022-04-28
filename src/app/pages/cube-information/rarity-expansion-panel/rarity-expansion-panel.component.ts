@@ -11,8 +11,7 @@ import {MdbModalRef, MdbModalService} from "mdb-angular-ui-kit/modal";
 })
 export class RarityExpansionPanelComponent implements OnInit {
     modalRef: MdbModalRef<ExpandImageModalComponent> | null = null;
-    @Input() cube: Cube | undefined;
-    @Input() rarityKey: string | undefined;
+    @Input() cards: Card[] | undefined;
     @Input() rarityLabel: string | undefined;
 
     constructor(private modalService: MdbModalService) {

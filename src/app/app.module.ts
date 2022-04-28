@@ -11,7 +11,7 @@ import {FlexLayoutModule} from "@angular/flex-layout";
 import {CubeComponent} from './components/cube/cube.component';
 import {RoomPage} from './pages/room/room.page';
 import {CubeSearchListingCardComponent} from './components/cube-search-listing-card/cube-search-listing-card.component';
-import {CardNamesCsvPipe} from './pipes/card-names-csv.pipe';
+import {ToCsvPipe} from './pipes/card-names-csv.pipe';
 import {LimitToPipe} from './pipes/limit-to.pipe';
 
 import {CubeFeatureTypeComponent} from './components/cube-feature-type/cube-feature-type.component';
@@ -50,6 +50,10 @@ import {FilterRarityPipe} from './pipes/filter-rarity.pipe';
 import {
     RarityExpansionPanelComponent
 } from './pages/cube-information/rarity-expansion-panel/rarity-expansion-panel.component';
+import {RaritySortPipe} from './pipes/rarity-sort.pipe';
+import {RemoveDupsPipe} from './pipes/remove-dups.pipe';
+import {CardNamesPipe} from './pipes/card-names.pipe';
+import {StartDraftLoadPagePage} from './pages/start-draft-load-page/start-draft-load-page.page';
 
 
 @NgModule({
@@ -60,7 +64,7 @@ import {
         CubeComponent,
         RoomPage,
         CubeSearchListingCardComponent,
-        CardNamesCsvPipe,
+        ToCsvPipe,
         LimitToPipe,
         CubeFeatureTypeComponent,
         JumbotronComponent,
@@ -88,7 +92,11 @@ import {
         CubeTagsListComponent,
         TagInActivesPipe,
         FilterRarityPipe,
-        RarityExpansionPanelComponent
+        RarityExpansionPanelComponent,
+        RaritySortPipe,
+        RemoveDupsPipe,
+        CardNamesPipe,
+        StartDraftLoadPagePage
     ],
     imports: [
         BrowserModule,

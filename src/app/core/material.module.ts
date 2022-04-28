@@ -20,6 +20,7 @@ import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatChipsModule} from "@angular/material/chips";
 import {MatExpansionModule} from "@angular/material/expansion";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 @NgModule({
     declarations: [],
@@ -43,7 +44,8 @@ import {MatExpansionModule} from "@angular/material/expansion";
         MatSidenavModule,
         MatPaginatorModule,
         MatChipsModule,
-        MatExpansionModule
+        MatExpansionModule,
+        MatProgressSpinnerModule
     ],
     exports: [
         MdbAccordionModule,
@@ -64,7 +66,8 @@ import {MatExpansionModule} from "@angular/material/expansion";
         MatSidenavModule,
         MatPaginatorModule,
         MatChipsModule,
-        MatExpansionModule
+        MatExpansionModule,
+        MatProgressSpinnerModule
     ]
 })
 export class MaterialModule {

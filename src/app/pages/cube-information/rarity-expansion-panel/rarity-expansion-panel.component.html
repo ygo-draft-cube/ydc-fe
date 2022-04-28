@@ -1,19 +1,19 @@
-<mat-expansion-panel expanded="true" *ngIf="cube && (cube.cards | filterRarity : rarityKey).length">
+<mat-expansion-panel expanded="true" *ngIf="cards && cards.length">
     <mat-expansion-panel-header>
         <mat-panel-title>
-            {{rarityLabel}} Rarity
+            <b>{{rarityLabel}}&nbsp;</b> ({{cards.length}} cards)
         </mat-panel-title>
     </mat-expansion-panel-header>
 
     <div class="row flex-row">
-        <div *ngFor="let card of (cube.cards | filterRarity : rarityKey)"
-             class="col-6 col-md-4 col-lg-3 col-xl-2 col-xxl-2 mb-4">
+        <div *ngFor="let card of cards"
+             class="col-3 col-md-2 col-xl-1 mb-4">
             <div *ngIf="card">
                 <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
                     <img [src]="card.id | cardImageUrl" class="img-fluid" style="width: 100%"/>
                     <span (click)="openModal(card)" style="cursor: pointer">
-                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                            </span>
+                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                    </span>
                 </div>
             </div>
         </div>

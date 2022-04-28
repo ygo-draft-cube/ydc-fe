@@ -3,7 +3,7 @@
         <div class="card text-center">
             <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
                 <img [src]="cube.coverImage | coverImageUrl" class="img-fluid"
-                     style="height: 500px; width: 100%; object-fit: cover;"/>
+                     style="height: 400px; width: 100%; object-fit: cover;"/>
             </div>
             <h1 class="card-header">{{cube.name}}</h1>
             <div class="card-title mb-4">
@@ -53,17 +53,22 @@
 
         </div>
         <div>
-            <h2>Contents ({{cube.cards.length}} cards):</h2>
+            <h2>Cards ({{cube.cards.length}}):</h2>
             <mat-accordion class="example-headers-align" multi>
-                <app-rarity-expansion-panel [cube]="cube" rarityKey="ULTIMATE_RARE" rarityLabel="Ultimate Rare">
+                <app-rarity-expansion-panel [cards]="cube.cards | filterRarity: 'ULTIMATE_RARE'"
+                                            rarityLabel="Ultimate Rare">
                 </app-rarity-expansion-panel>
-                <app-rarity-expansion-panel [cube]="cube" rarityKey="ULTRA_RARE" rarityLabel="Ultra Rare">
+                <app-rarity-expansion-panel [cards]="cube.cards | filterRarity: 'ULTRA_RARE'"
+                                            rarityLabel="Ultra Rare">
                 </app-rarity-expansion-panel>
-                <app-rarity-expansion-panel [cube]="cube" rarityKey="SUPER_RARE" rarityLabel="Super Rare">
+                <app-rarity-expansion-panel [cards]="cube.cards | filterRarity: 'SUPER_RARE'"
+                                            rarityLabel="Super Rare">
                 </app-rarity-expansion-panel>
-                <app-rarity-expansion-panel [cube]="cube" rarityKey="RARE" rarityLabel="Rare">
+                <app-rarity-expansion-panel [cards]="cube.cards | filterRarity: 'RARE'"
+                                            rarityLabel="Rare">
                 </app-rarity-expansion-panel>
-                <app-rarity-expansion-panel [cube]="cube" rarityKey="COMMON" rarityLabel="Common">
+                <app-rarity-expansion-panel [cards]="cube.cards | filterRarity: 'COMMON'"
+                                            rarityLabel="Common">
                 </app-rarity-expansion-panel>
 
             </mat-accordion>

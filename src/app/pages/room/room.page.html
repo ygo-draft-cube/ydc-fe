@@ -1,1 +1,17 @@
-<p>room works!</p>
+<div *ngIf="this.draftRoomService.loadingRoomInfo$ | async; else loaded">
+    LOADING
+</div>
+
+<ng-template #loaded>
+    <main *ngIf="(this.draftRoomService.room$ | async) as room; else noRoom" class="container">
+        <div *ngIf="room.cube; else noRoom">
+            <h1>{{room.roomId}}</h1>
+        </div>
+    </main>
+</ng-template>
+
+<ng-template #noRoom>
+    <main class="container">
+        <h2>Error loading the draft room; go back to the previous page</h2>
+    </main>
+</ng-template>

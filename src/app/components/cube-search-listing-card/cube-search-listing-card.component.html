@@ -11,20 +11,23 @@
     </div>
     <div class="card-body">
         <h1 class="card-title">{{cube.name}}</h1>
-        <div class="card-text">
+        <div class="card-text" *ngIf="cube.cards">
             <div class="mb-4">
                 <app-cube-tags-list [tags]="cube.tags"></app-cube-tags-list>
             </div>
             <p>{{cube.description | limitTo : 400}}</p>
             <p *ngIf="cube.cards">
-                <span
-                    [ngStyle]="{'fontWeight': 'bold'}">Includes:
-                </span> {{cube.cards | cardNamesCsv : ', '| limitTo :100}}
+                <span style="fontWeight: bold">Includes:</span>
+                {{cube.cards | raritySort | cardNames | removeDups |  toCsv : ', '| limitTo :200}}
             </p>
             <p>
-                <span
-                    [ngStyle]="{'fontWeight': 'bold'}">Number of Cards:
-                </span> {{cube.cards?.length}}
+                <span style="fontWeight: bold">Number of Cards: </span> {{cube.cards.length}}
+                <span *ngIf="(cube.cards | cardNames | removeDups).length === cube.cards.length">
+                    (Singleton)
+                </span>
+                <span *ngIf="(cube.cards | cardNames | removeDups).length !== cube.cards.length">
+                    ({{(cube.cards | cardNames | removeDups).length}} uniques)
+                </span>
             </p>
             <p>
                 <span
