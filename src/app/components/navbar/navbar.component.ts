@@ -1,5 +1,6 @@
 import {Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy} from '@angular/core';
-import {Router} from "@angular/router";
+import {UserService} from "../../services/user.service";
+import {DraftRoomService} from "../../services/draft-room.service";
 
 @Component({
     selector: 'app-navbar',
@@ -9,10 +10,18 @@ import {Router} from "@angular/router";
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NavbarComponent implements OnInit {
-    constructor() {
+    constructor(public userService: UserService, public draftRoomService: DraftRoomService) {
     }
 
     ngOnInit(): void {
+    }
+
+    signIn(): void {
+        this.userService.signIn()
+    }
+
+    signOut(): void {
+        this.userService.signOut()
     }
 
 }

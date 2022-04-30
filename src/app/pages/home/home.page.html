@@ -1,9 +1,8 @@
 <app-jumbotron></app-jumbotron>
 
 <main *ngIf="(this.activatedRoute.data | async)?.['data'] as data; else loading">
-    <div class="container visually-hidden">
-        <app-room-in-progress-alert></app-room-in-progress-alert>
-    </div>
+    <app-room-in-progress-alert *ngIf="this.draftRoomService.room$ | async as room"
+                                [id]="room.id"></app-room-in-progress-alert>
 
     <app-cube
         [battlePackCubes]="(data | as: HomePageResolverData).battlePackCubes"

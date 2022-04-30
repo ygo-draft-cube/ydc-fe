@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
     selector: 'app-room-in-progress-alert',
@@ -6,11 +6,11 @@ import {Component, OnInit} from '@angular/core';
     styleUrls: ['./room-in-progress-alert.component.scss']
 })
 export class RoomInProgressAlertComponent implements OnInit {
+    @Input() id: string | undefined;
 
     constructor() {
     }
 
     ngOnInit(): void {
     }
-
 }

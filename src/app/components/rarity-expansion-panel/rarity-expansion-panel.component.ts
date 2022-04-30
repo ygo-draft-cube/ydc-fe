@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Cube} from "../../../models/cube.model";
-import {Card} from "../../../models/card.model";
-import {ExpandImageModalComponent} from "../../../components/expand-image-modal/expand-image-modal.component";
+import {Cube} from "../../models/cube.model";
+import {Card} from "../../models/card.model";
+import {ExpandImageModalComponent} from "../expand-image-modal/expand-image-modal.component";
 import {MdbModalRef, MdbModalService} from "mdb-angular-ui-kit/modal";
 
 @Component({

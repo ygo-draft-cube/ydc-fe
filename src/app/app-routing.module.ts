@@ -12,6 +12,8 @@ import {AboutUsPage} from "./pages/about-us/about-us.page";
 import {NotFoundPage} from "./pages/not-found/not-found.page";
 import {CubeSearchResolver} from "./resolvers/cube-search.resolver";
 import {StartDraftLoadPagePage} from "./pages/start-draft-load-page/start-draft-load-page.page";
+import {ProfilePage} from "./pages/profile/profile.page";
+import {UserIsLoggedInGuard} from "./guards/user-is-logged-in.guard";
 
 const routes: Routes = [
     {
@@ -37,9 +39,8 @@ const routes: Routes = [
         path: 'cubes/:id/draft',
         component: StartDraftLoadPagePage
     }, {
-        path: 'draft-room/:roomId',
+        path: 'draft-room/:id',
         component: RoomPage,
-        resolve: {}
     }, {
         path: 'login-register',
         component: LoginRegisterPage,
@@ -49,6 +50,10 @@ const routes: Routes = [
     }, {
         path: 'about-us',
         component: AboutUsPage
+    }, {
+        path: 'profile',
+        component: ProfilePage,
+        canActivate: [UserIsLoggedInGuard]
     }, {
         path: '**',
         component: NotFoundPage

@@ -11,7 +11,7 @@ import {CubeService} from "../../services/cube.service";
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class StartDraftLoadPagePage implements OnDestroy {
-    mocked$: Subscription
+    mocked$: Subscription | undefined;
 
     constructor(
         private activatedRoute: ActivatedRoute,
@@ -19,9 +19,9 @@ export class StartDraftLoadPagePage implements OnDestroy {
         private draftRoomService: DraftRoomService,
         private cubeService: CubeService
     ) {
-        const id = this.activatedRoute.snapshot.params['id'];
-        this.mocked$ = this.cubeService.getCubeById(id).pipe(
-            delay(5000)
+        const cubeId = this.activatedRoute.snapshot.params['id'];
+        this.mocked$ = this.cubeService.getCubeById(cubeId).pipe(
+            delay(2000)
         ).subscribe((cube) => {
             const roomId = this.draftRoomService.setRoomInfo(cube)
             this.router.navigate(['/draft-room', roomId])
@@ -29,6 +29,6 @@ export class StartDraftLoadPagePage implements OnDestroy {
     }
 
     ngOnDestroy(): void {
-        this.mocked$.unsubscribe()
+        this.mocked$?.unsubscribe()
     }
 }

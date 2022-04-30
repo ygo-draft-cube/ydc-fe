@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {CubeInformationResolverData} from "../../resolvers/cube-information.resolver-data-interface";
+import {UserService} from "../../services/user.service";
 
 
 @Component({
@@ -12,7 +13,9 @@ import {CubeInformationResolverData} from "../../resolvers/cube-information.reso
 export class CubeInformationPage implements OnInit {
     CubeInformationResolverData!: CubeInformationResolverData
 
-    constructor(public activatedRoute: ActivatedRoute,) {
+    constructor(
+        public activatedRoute: ActivatedRoute, public userService: UserService
+    ) {
     }
 
     ngOnInit(): void {

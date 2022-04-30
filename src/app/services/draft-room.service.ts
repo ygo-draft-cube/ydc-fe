@@ -8,27 +8,26 @@ import {nanoid} from "nanoid";
     providedIn: 'root'
 })
 export class DraftRoomService {
-    room$: BehaviorSubject<{ cube: (Cube | null); roomId: (string | null) }>
+    room$: BehaviorSubject<{ cube: Cube; id: string } | null>
     loadingRoomInfo$: BehaviorSubject<boolean>
 
     constructor() {
-        const initialRoom = {cube: null, roomId: null}
-        this.room$ = new BehaviorSubject<{ cube: Cube | null, roomId: string | null }>(initialRoom)
+        this.room$ = new BehaviorSubject<{ cube: Cube, id: string } | null>(null)
         this.loadingRoomInfo$ = new BehaviorSubject<boolean>(false)
+    }
+
+    public setRoomInfo(cube: Cube): string {
+        const id = nanoid()
+        this.room$.next({
+            cube: cube,
+            id: id
+        })
+
+        return id
     }
 
     public startLoading() {
         this.loadingRoomInfo$.next(true)
-    }
-
-    public setRoomInfo(cube: Cube): string {
-        const roomId = nanoid()
-        this.room$.next({
-            cube: cube,
-            roomId: roomId
-        })
-
-        return roomId
     }
 
     public finishLoading() {

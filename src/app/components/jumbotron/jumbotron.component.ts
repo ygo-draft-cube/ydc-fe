@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 
 @Component({
     selector: 'app-jumbotron',
@@ -7,15 +7,9 @@ import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
     encapsulation: ViewEncapsulation.Emulated
 })
 export class JumbotronComponent implements OnInit {
-    @Input() heading: string | undefined
-    @Input() subheading: string | undefined
-    @Input() imageHeight: string | undefined
-    @Input() imageUrl: string | undefined
-
     constructor() {
     }
 
     ngOnInit(): void {
     }
-
 }

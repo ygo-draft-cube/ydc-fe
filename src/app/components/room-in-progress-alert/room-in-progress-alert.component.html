@@ -1,5 +1,5 @@
-<a routerLink="draft-room">
-    <div class="alert alert-danger" role="alert">
-        You have a draft room in session. Click here to go to it.
+<a [routerLink]="['draft-room', id]">
+    <div class="alert alert-danger mb-0 text-center" role="alert" style="border-radius: 0">
+        <h2 class="mb-0">You have a draft room in session. Click here to go to it.</h2>
     </div>
 </a>

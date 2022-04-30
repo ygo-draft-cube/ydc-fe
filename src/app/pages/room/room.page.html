@@ -4,9 +4,7 @@
 
 <ng-template #loaded>
     <main *ngIf="(this.draftRoomService.room$ | async) as room; else noRoom" class="container">
-        <div *ngIf="room.cube; else noRoom">
-            <h1>{{room.roomId}}</h1>
-        </div>
+        <h1>{{room.id}}</h1>
     </main>
 </ng-template>
 

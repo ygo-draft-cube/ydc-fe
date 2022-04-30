@@ -49,11 +49,12 @@ import {ProfilePicUrlPipe} from "./pipes/profile-pic-url.pipe";
 import {FilterRarityPipe} from './pipes/filter-rarity.pipe';
 import {
     RarityExpansionPanelComponent
-} from './pages/cube-information/rarity-expansion-panel/rarity-expansion-panel.component';
+} from './components/rarity-expansion-panel/rarity-expansion-panel.component';
 import {RaritySortPipe} from './pipes/rarity-sort.pipe';
 import {RemoveDupsPipe} from './pipes/remove-dups.pipe';
 import {CardNamesPipe} from './pipes/card-names.pipe';
 import {StartDraftLoadPagePage} from './pages/start-draft-load-page/start-draft-load-page.page';
+import {ProfilePage} from './pages/profile/profile.page';
 
 
 @NgModule({
@@ -96,7 +97,8 @@ import {StartDraftLoadPagePage} from './pages/start-draft-load-page/start-draft-
         RaritySortPipe,
         RemoveDupsPipe,
         CardNamesPipe,
-        StartDraftLoadPagePage
+        StartDraftLoadPagePage,
+        ProfilePage
     ],
     imports: [
         BrowserModule,
